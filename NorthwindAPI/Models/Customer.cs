@@ -11,5 +11,6 @@ namespace NorthwindAPI.Models
         public string Company { get; set; }
         public string City{ get; set; }
         public string Country{ get; set; }
+        public ICollection<Order> Orders { get; set; }
     }
 }
