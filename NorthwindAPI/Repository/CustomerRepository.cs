@@ -12,10 +12,10 @@ namespace NorthwindAPI.Repository
         }
 
         private readonly DataContext _context;
-        
+
         public ICollection<Customer> GetCustomers()
         {
-            return _context.Customers.OrderBy(p => p.Id).ToList();
+            return _context.Customers.OrderBy(p => p.CustomerId).ToList();
         }
     }
 }
