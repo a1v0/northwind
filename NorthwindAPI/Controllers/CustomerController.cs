@@ -12,5 +12,20 @@ namespace NorthwindAPI.Controllers
        }
 
        private readonly ICustomerRepository _customerRepository;
+
+       [HttpGet]
+       [ProducesResponseType(200, Type = typeof(IEnumerable<Customer>))]
+
+       public IActionResult GetCustomers()
+       {
+          var customers = _customerRepository.GetCustomers();
+
+          if (!ModelState.IsValid)
+          {
+              return BadRequest(ModelState);
+          }
+
+          return Ok(customers);
+       }
     }
 }
