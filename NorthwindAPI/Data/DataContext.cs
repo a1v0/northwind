@@ -3,11 +3,11 @@ using NorthwindAPI.Models;
 
 namespace NorthwindAPI.Data
 {
-    public class DataContext:DbContext
+    public class DataContext : DbContext
     {
-        public DataContext(DbContextOptions<DataContext>options):base(options)
+        public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
-            
+
         }
 
         public DbSet<Order> Orders { get; set; }

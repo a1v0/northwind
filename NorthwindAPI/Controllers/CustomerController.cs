@@ -8,26 +8,26 @@ namespace NorthwindAPI.Controllers
     [ApiController]
     public class CustomerController : Controller
     {
-       public CustomerController(ICustomerRepository customerRepository)
-       {
-          _customerRepository = customerRepository;
-       }
+        public CustomerController(ICustomerRepository customerRepository)
+        {
+            _customerRepository = customerRepository;
+        }
 
-       private readonly ICustomerRepository _customerRepository;
+        private readonly ICustomerRepository _customerRepository;
 
-       [HttpGet]
-       [ProducesResponseType(200, Type = typeof(IEnumerable<Customer>))]
+        [HttpGet]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Customer>))]
 
-       public IActionResult GetCustomers()
-       {
-          var customers = _customerRepository.GetCustomers();
+        public IActionResult GetCustomers()
+        {
+            var customers = _customerRepository.GetCustomers();
 
-          if (!ModelState.IsValid)
-          {
-              return BadRequest(ModelState);
-          }
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-          return Ok(customers);
-       }
+            return Ok(customers);
+        }
     }
 }
