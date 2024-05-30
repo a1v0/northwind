@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using NorthwindAPI.Data;
+using NorthwindAPI.Interfaces;
+using NorthwindAPI.Repository;
 
 namespace NorthwindAPI
 {

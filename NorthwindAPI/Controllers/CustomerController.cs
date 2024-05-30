@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using NorthwindAPI.Interfaces;
+using NorthwindAPI.Models;
 
 namespace NorthwindAPI.Controllers
 {

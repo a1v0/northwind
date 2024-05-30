@@ -1,4 +1,5 @@
 using NorthwindAPI.Data;
+using NorthwindAPI.Interfaces;
 using NorthwindAPI.Models;
 
 namespace NorthwindAPI.Repository
@@ -14,7 +15,7 @@ namespace NorthwindAPI.Repository
         
         public ICollection<Customer> GetCustomers()
         {
-            return _context.Customer.OrderBy(p => p.Id).ToList();
+            return _context.Customers.OrderBy(p => p.Id).ToList();
         }
     }
 }
