@@ -3,7 +3,7 @@ using NorthwindAPI.Models;
 
 namespace NorthwindAPI.Repository
 {
-    public class CustomerRepository
+    public class CustomerRepository : ICustomerRepository
     {
         public CustomerRepository(DataContext context)
         {
