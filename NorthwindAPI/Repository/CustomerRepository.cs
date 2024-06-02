@@ -22,5 +22,10 @@ namespace NorthwindAPI.Repository
         {
             return _context.Customers.Where(p => p.CustomerId == id).FirstOrDefault();
         }
+
+        public bool CustomerExists(string id)
+        {
+            return _context.Customers.Any(p => p.CustomerId == id);
+        }
     }
 }
