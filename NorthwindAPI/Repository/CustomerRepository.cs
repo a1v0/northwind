@@ -17,5 +17,10 @@ namespace NorthwindAPI.Repository
         {
             return _context.Customers.OrderBy(p => p.CustomerId).ToList();
         }
+
+        public Customer GetCustomer(string id)
+        {
+            return _context.Customers.Where(p => p.CustomerId == id).FirstOrDefault();
+        }
     }
 }
