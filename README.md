@@ -8,6 +8,8 @@ A project to help me learn and gain experience with various C#/.NET technologies
 - Create a Blazor/MAUI application/website to display that data
 - Create unit tests using xUnit for the API (and possibly any methods in my MAUI app)
 
-## Installing the database
+## Installing prerequisites
 
 You can install an MSSQL version of Northwind [here](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/northwind-pubs).
+
+You will also need to install Entity Framework.
