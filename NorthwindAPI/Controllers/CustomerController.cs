@@ -39,6 +39,15 @@ namespace NorthwindAPI.Controllers
             {
                 return NotFound();
             }
+
+            var customer = _customerRepository.GetCustomer(id);
+            
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            return Ok(customer);
         }
     }
 }
