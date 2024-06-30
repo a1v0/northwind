@@ -17,7 +17,6 @@ namespace NorthwindAPI.Controllers
 
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Customer>))]
-
         public IActionResult GetCustomers()
         {
             var customers = _customerRepository.GetCustomers();
