@@ -33,7 +33,7 @@ namespace NorthwindAPI.Controllers
         [HttpGet("{employeeId}")]
         [ProducesResponseType(200, Type = typeof(Employee))]
         [ProducesResponseType(400)]
-        public IActionResult GetEmployee(string employeeId)
+        public IActionResult GetEmployee(int employeeId)
         {
             if (!_employeeRepository.EmployeeExists(employeeId))
             {

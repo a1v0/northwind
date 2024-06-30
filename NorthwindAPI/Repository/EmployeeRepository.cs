@@ -15,17 +15,17 @@ namespace NorthwindAPI.Repository
 
         public ICollection<Employee> GetEmployees()
         {
-            return _context.Employees.OrderBy(p => p.Id).ToList();
+            return _context.Employees.OrderBy(p => p.EmployeeId).ToList();
         }
 
-        public Employee GetEmployee(string id)
+        public Employee GetEmployee(int id)
         {
-            return _context.Employees.Where(p => p.Id == id).FirstOrDefault();
+            return _context.Employees.Where(p => p.EmployeeId == id).FirstOrDefault();
         }
 
-        public bool EmployeeExists(string id)
+        public bool EmployeeExists(int id)
         {
-            return _context.Employees.Any(p => p.Id == id);
+            return _context.Employees.Any(p => p.EmployeeId == id);
         }
     }
 }
