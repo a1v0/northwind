@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using NorthwindAPI.Interfaces;
 using NorthwindAPI.Models;
+using NorthwindAPI.Repository;
 
 namespace NorthwindAPI.Controllers
 {
@@ -17,7 +18,6 @@ namespace NorthwindAPI.Controllers
 
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Employee>))]
-
         public IActionResult GetEmployees()
         {
             var employees = _employeeRepository.GetEmployees();
@@ -29,5 +29,27 @@ namespace NorthwindAPI.Controllers
 
             return Ok(employees);
         }
+
+        [HttpGet("{employeeId}")]
+        [ProducesResponseType(200, Type = typeof(Employee))]
+        [ProducesResponseType(400)]
+        public IActionResult GetEmployee(string employeeId)
+        {
+            if (!_employeeRepository.EmployeeExists(employeeId))
+            {
+                return NotFound();
+            }
+
+            var employee = _employeeRepository.GetEmployee(employeeId);
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            return Ok(employee);
+        }
+
+        // add further endpoints as necessary
     }
 }
