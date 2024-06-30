@@ -33,14 +33,14 @@ namespace NorthwindAPI.Controllers
         [HttpGet("{customerId}")]
         [ProducesResponseType(200, Type = typeof(Customer))]
         [ProducesResponseType(400)]
-        public IActionResult GetCustomer(string id)
+        public IActionResult GetCustomer(string customerId)
         {
-            if(_customerRepository.CustomerExists(id))
+            if(!_customerRepository.CustomerExists(customerId))
             {
                 return NotFound();
             }
 
-            var customer = _customerRepository.GetCustomer(id);
+            var customer = _customerRepository.GetCustomer(customerId);
             
             if (!ModelState.IsValid)
             {
@@ -49,5 +49,7 @@ namespace NorthwindAPI.Controllers
 
             return Ok(customer);
         }
+
+        // add further endpoints as necessary
     }
 }
