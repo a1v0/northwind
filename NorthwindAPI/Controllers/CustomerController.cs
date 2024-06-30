@@ -29,5 +29,16 @@ namespace NorthwindAPI.Controllers
 
             return Ok(customers);
         }
+
+        [HttpGet("{customerId}")]
+        [ProducesResponseType(200, Type = typeof(Customer))]
+        [ProducesResponseType(400)]
+        public IActionResult GetCustomer(string id)
+        {
+            if(_customerRepository.CustomerExists(id))
+            {
+                return NotFound();
+            }
+        }
     }
 }
