@@ -17,7 +17,6 @@ namespace NorthwindAPI.Controllers
 
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Order>))]
-
         public IActionResult GetOrders()
         {
             var orders = _orderRepository.GetOrders();
