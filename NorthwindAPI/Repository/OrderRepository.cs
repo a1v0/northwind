@@ -15,7 +15,12 @@ namespace NorthwindAPI.Repository
 
         public ICollection<Order> GetOrders()
         {
-            return _context.Orders.OrderBy(p => p.OrderId).ToList();
+            return _context.Orders.OrderBy(p => p.Id).ToList();
+        }
+
+        public Order GetOrder(int id)
+        {
+            return _context.Orders.Where(p => p.Id == id).FirstOrDefault();
         }
     }
 }
