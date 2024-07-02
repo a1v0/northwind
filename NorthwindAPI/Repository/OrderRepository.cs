@@ -15,17 +15,17 @@ namespace NorthwindAPI.Repository
 
         public ICollection<Order> GetOrders()
         {
-            return _context.Orders.OrderBy(p => p.OrderID).ToList();
+            return _context.Orders.OrderBy(p => p.OrderId).ToList();
         }
 
         public Order GetOrder(int id)
         {
-            return _context.Orders.Where(p => p.OrderID == id).FirstOrDefault();
+            return _context.Orders.Where(p => p.OrderId == id).FirstOrDefault();
         }
 
         public bool OrderExists(int id)
         {
-            return _context.Orders.Any(p => p.OrderID == id);
+            return _context.Orders.Any(p => p.OrderId == id);
         }
     }
 }
