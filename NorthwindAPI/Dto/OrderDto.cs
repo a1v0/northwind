@@ -1,3 +1,5 @@
+using NorthwindAPI.Models;
+
 namespace NorthwindAPI.Dto
 {
     public class OrderDto
