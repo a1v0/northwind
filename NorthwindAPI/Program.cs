@@ -16,8 +16,8 @@ namespace NorthwindAPI
             builder.Services.AddControllers();
             builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
             builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            builder.Services.AddScoped<IOrderRepository, OrderRepository>();
             //builder.Services.AddScoped<IShipperRepository, ShipperRepository>();
-            //builder.Services.AddScoped<IOrderRepository, OrderRepository>();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
