@@ -9,6 +9,9 @@ namespace NorthwindAPI.Helper
         public MappingProfiles()
         {
             CreateMap<Customer, CustomerDto>();
+            CreateMap<Employee, EmployeeDto>();
+            CreateMap<Order, OrderDto>();
+            CreateMap<Shipper, ShipperDto>();
         }
     }
 }
