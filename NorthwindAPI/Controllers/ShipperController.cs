@@ -17,7 +17,6 @@ namespace NorthwindAPI.Controllers
 
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Shipper>))]
-
         public IActionResult GetShippers()
         {
             var shippers = _shipperRepository.GetShippers();
@@ -29,5 +28,27 @@ namespace NorthwindAPI.Controllers
 
             return Ok(shippers);
         }
+
+        [HttpGet("{shipperId}")]
+        [ProducesResponseType(200, Type = typeof(Shipper))]
+        [ProducesResponseType(400)]
+        public IActionResult GetShipper(int shipperId)
+        {
+            if (!_shipperRepository.ShipperExists(shipperId))
+            {
+                return NotFound();
+            }
+
+            var shipper = _shipperRepository.GetShipper(shipperId);
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            return Ok(shipper);
+        }
+
+        // add further endpoints as necessary
     }
 }
