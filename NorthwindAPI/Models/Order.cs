@@ -6,7 +6,7 @@ namespace NorthwindAPI.Models
 {
     public class Order
     {
-        public int Id { get; set; }
+        public int OrderID { get; set; }
         public Employee Employee { get; set; }
         public Customer Customer { get; set; }
         public Shipper Shipper { get; set; }

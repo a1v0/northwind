@@ -4,7 +4,7 @@ namespace NorthwindAPI.Dto
 {
     public class OrderDto
     {
-        public string OrderId { get; set; }
+        public string OrderID { get; set; }
         public int Id { get; set; }
         public Employee Employee { get; set; }
         public Customer Customer { get; set; }
