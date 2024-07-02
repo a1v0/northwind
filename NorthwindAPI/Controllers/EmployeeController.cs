@@ -1,7 +1,8 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using NorthwindAPI.Dto;
 using NorthwindAPI.Interfaces;
 using NorthwindAPI.Models;
-using NorthwindAPI.Repository;
 
 namespace NorthwindAPI.Controllers
 {
@@ -9,18 +10,20 @@ namespace NorthwindAPI.Controllers
     [ApiController]
     public class EmployeeController : Controller
     {
-        public EmployeeController(IEmployeeRepository employeeRepository)
+        public EmployeeController(IEmployeeRepository employeeRepository, IMapper mapper)
         {
             _employeeRepository = employeeRepository;
+            _mapper = mapper;
         }
 
         private readonly IEmployeeRepository _employeeRepository;
+        private readonly IMapper _mapper;
 
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Employee>))]
         public IActionResult GetEmployees()
         {
-            var employees = _employeeRepository.GetEmployees();
+            var employees = _mapper.Map<List<EmployeeDto>>(_employeeRepository.GetEmployees());
 
             if (!ModelState.IsValid)
             {
@@ -40,7 +43,7 @@ namespace NorthwindAPI.Controllers
                 return NotFound();
             }
 
-            var employee = _employeeRepository.GetEmployee(employeeId);
+            var employee = _mapper.Map<EmployeeDto>(_employeeRepository.GetEmployee(employeeId));
 
             if (!ModelState.IsValid)
             {
