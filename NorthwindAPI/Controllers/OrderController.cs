@@ -28,5 +28,27 @@ namespace NorthwindAPI.Controllers
 
             return Ok(orders);
         }
+
+        [HttpGet("{orderId}")]
+        [ProducesResponseType(200, Type = typeof(Order))]
+        [ProducesResponseType(400)]
+        public IActionResult GetOrder(int orderId)
+        {
+            if (!_orderRepository.OrderExists(orderId))
+            {
+                return NotFound();
+            }
+
+            var order = _orderRepository.GetOrder(orderId);
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            return Ok(order);
+        }
+
+        // add further endpoints as necessary
     }
 }
