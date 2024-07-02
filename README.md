@@ -13,3 +13,7 @@ A project to help me learn and gain experience with various C#/.NET technologies
 You can install an MSSQL version of Northwind [here](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/northwind-pubs). (The database is a little inconsistent in its use of data types for IDs, so beware.)
 
 You will also need to install Entity Framework.
+
+## Bugs
+
+The `/Order` endpoint doesn't work for reasons I haven't yet been able to figure out. There's something wrong with the foreign key of `Shipper` in that table.
