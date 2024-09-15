@@ -15,17 +15,17 @@ namespace NorthwindAPI.Repository
 
         public ICollection<Shipper> GetShippers()
         {
-            return _context.Shippers.OrderBy(p => p.ShipperID).ToList();
+            return _context.Shippers.OrderBy(p => p.ShipperId).ToList();
         }
 
         public Shipper GetShipper(int shipperId)
         {
-            return _context.Shippers.Where(p => p.ShipperID == shipperId).FirstOrDefault();
+            return _context.Shippers.Where(p => p.ShipperId == shipperId).FirstOrDefault();
         }
 
         public bool ShipperExists(int shipperId)
         {
-            return _context.Shippers.Any(p => p.ShipperID == shipperId);
+            return _context.Shippers.Any(p => p.ShipperId == shipperId);
         }
     }
 }
