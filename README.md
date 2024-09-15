@@ -16,4 +16,6 @@ You will also need to install Entity Framework.
 
 ## Bugs
 
-The `/Order` endpoint doesn't work for reasons I haven't yet been able to figure out. There's something wrong with the foreign key of `Shipper` in that table.
+The `/Order` endpoint doesn't work for reasons I haven't fully ascertained. There's something wrong with the foreign key of `Shipper` in that table.
+
+We're getting a `SQLException` and the program is complaining that there is no column called `ShipperID` in the table, but there demonstrably is. The stack trace is unhelpful: I can't see what SQL command the program is trying to execute under the hood and don't know where to look next.
