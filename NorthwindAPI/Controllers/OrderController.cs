@@ -23,7 +23,7 @@ namespace NorthwindAPI.Controllers
         [ProducesResponseType(200, Type = typeof(IEnumerable<Order>))]
         public IActionResult GetOrders()
         {
-            var orders =_mapper.Map<List<OrderDto>>( _orderRepository.GetOrders());
+            var orders = _mapper.Map<List<OrderDto>>(_orderRepository.GetOrders());
 
             if (!ModelState.IsValid)
             {
